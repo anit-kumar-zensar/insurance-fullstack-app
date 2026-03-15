@@ -35,3 +35,20 @@ exports.getBuildings = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+exports.getProposalDashboard = async (req, res) => {
+  try {
+    const proposal = await Proposal.findById(req.params.id);
+
+    const buildings = await Building.find({
+      proposalId: req.params.id,
+    });
+
+    res.json({
+      proposal,
+      buildings,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

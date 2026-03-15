@@ -2,11 +2,14 @@ const express = require("express");
 const { body } = require("express-validator");
 const router = express.Router();
 
+const auth = require("../middleware/authMiddleware");
+
 const {
   createProposal,
   getProposals,
   getProposalById,
   updateProposal,
+  getProposalDashboard,
 } = require("../controller/proposalController");
 
 router.post(
@@ -20,10 +23,12 @@ router.post(
   createProposal,
 );
 
-router.get("/", getProposals);
+router.get("/", auth, getProposals);
 
-router.get("/:id", getProposalById);
+router.get("/:id", auth, getProposalById);
 
-router.put("/:id", updateProposal);
+router.put("/:id", auth, updateProposal);
+
+router.get("/dashboard/:id", auth, getProposalDashboard);
 
 module.exports = router;
