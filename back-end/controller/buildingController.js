@@ -2,7 +2,21 @@ const Building = require("../models/Building");
 
 exports.addBuilding = async (req, res) => {
   try {
-    const building = await Building.create(req.body);
+    const {
+      buildingValue,
+      contents,
+      businessIncome,
+      propertyTerrorTotal,
+      glProgramProrata,
+    } = req.body;
+
+    const tiv =
+      Number(buildingValue) + Number(contents) + Number(businessIncome);
+
+    const proRataTotal =
+      Number(propertyTerrorTotal || 0) + Number(glProgramProrata || 0);
+
+    const building = await Building.create({ ...req.body, tiv, proRataTotal });
 
     res.status(201).json(building);
   } catch (error) {

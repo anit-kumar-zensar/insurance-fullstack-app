@@ -4,7 +4,7 @@ const router = express.Router();
 const {
   addBuilding,
   getBuildings,
-} = require("../controllers/buildingController");
+} = require("../controller/buildingController");
 
 router.post("/", addBuilding);
 

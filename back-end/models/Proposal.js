@@ -28,6 +28,10 @@ const ProposalSchema = new mongoose.Schema(
 
     environmentalAnnual: Number,
     environmentalProrated: Number,
+
+    totalInsuredValue: Number,
+    totalAnnualCost: Number,
+    totalProratedCost: Number,
   },
   { timestamps: true },
 );

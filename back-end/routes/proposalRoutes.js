@@ -1,4 +1,5 @@
 const express = require("express");
+const { body } = require("express-validator");
 const router = express.Router();
 
 const {
@@ -8,7 +9,16 @@ const {
   updateProposal,
 } = require("../controller/proposalController");
 
-router.post("/", createProposal);
+router.post(
+  "/",
+  [
+    body("portfolioName").notEmpty(),
+    body("buildingValue").isNumeric(),
+    body("contents").isNumeric(),
+    body("businessIncome").isNumeric(),
+  ],
+  createProposal,
+);
 
 router.get("/", getProposals);
 
