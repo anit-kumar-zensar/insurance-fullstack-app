@@ -32,6 +32,7 @@ const ProposalSchema = new mongoose.Schema(
     totalInsuredValue: Number,
     totalAnnualCost: Number,
     totalProratedCost: Number,
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
   { timestamps: true },
 );

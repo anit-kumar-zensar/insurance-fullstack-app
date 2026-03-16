@@ -8,17 +8,13 @@ const ProposalHeader = ({ proposal }) => {
       }}
     >
       <h2>{proposal.portfolioName}</h2>
-
       <p>
         Coverage Term: {proposal.coverageStart} - {proposal.coverageEnd}
       </p>
-
       <p>Address: {proposal.address}</p>
-
       <p>
         {proposal.city}, {proposal.state} {proposal.zip}
       </p>
-
       <p>CAT Load Category: {proposal.catLoadCategory}</p>
     </div>
   );

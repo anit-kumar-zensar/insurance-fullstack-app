@@ -8,7 +8,6 @@ const {
 } = require("../controller/buildingController");
 
 router.post("/", auth, addBuilding);
-
 router.get("/:proposalId", auth, getBuildings);
 
 module.exports = router;

@@ -1,4 +1,5 @@
 const Proposal = require("../models/Proposal");
+const Building = require("../models/Building");
 
 exports.createProposal = async (req, res) => {
   try {
@@ -61,6 +62,15 @@ exports.getProposalById = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+exports.getProposalByUserId = async (req, res) => {
+  try {
+    const proposals = await Proposal.find({ userId: req.params.userId });
+    res.json(proposals);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 exports.updateProposal = async (req, res) => {
   try {
     const proposal = await Proposal.findByIdAndUpdate(req.params.id, req.body, {
@@ -69,6 +79,25 @@ exports.updateProposal = async (req, res) => {
 
     res.json(proposal);
   } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// Dashboard: proposal + related buildings
+exports.getProposalDashboard = async (req, res) => {
+  try {
+    console.log("Fetching dashboard for proposal ID:", req.params.id);
+    const proposal = await Proposal.findById(req.params.id);
+    console.log("Proposal found:", proposal);
+    if (!proposal)
+      return res.status(404).json({ message: "Proposal not found" });
+
+    const buildings = await Building.find({ proposalId: req.params.id });
+    console.log("Related buildings found:", buildings);
+
+    res.json({ proposal, buildings });
+  } catch (error) {
+    console.error("Error fetching dashboard data:", error);
     res.status(500).json({ message: error.message });
   }
 };

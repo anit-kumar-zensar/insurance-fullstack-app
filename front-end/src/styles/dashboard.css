@@ -1,0 +1,24 @@
+.container {
+  width: 1000px;
+  margin: auto;
+  font-family: Arial;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: #fafafa;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}

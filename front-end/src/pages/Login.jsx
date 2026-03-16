@@ -21,8 +21,7 @@ const Login = () => {
       });
 
       login(res.data.user, res.data.token);
-
-      navigate("/dashboard");
+      navigate("/proposals");
     } catch (error) {
       alert("Login failed");
     }

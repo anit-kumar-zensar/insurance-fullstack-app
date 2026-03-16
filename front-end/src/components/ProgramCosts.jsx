@@ -8,7 +8,6 @@ const ProgramCosts = ({ proposal }) => {
       }}
     >
       <h3>Insurance Programs</h3>
-
       <table>
         <tbody>
           <tr>

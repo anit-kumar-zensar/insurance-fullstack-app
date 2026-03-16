@@ -1,3 +1,5 @@
+import formatCurrency from "../utils/formatCurrency";
+
 const CoverageValues = ({ proposal }) => {
   return (
     <div
@@ -13,22 +15,22 @@ const CoverageValues = ({ proposal }) => {
         <tbody>
           <tr>
             <td>Building Value</td>
-            <td>{proposal.buildingValue}</td>
+            <td>{formatCurrency(proposal.buildingValue)}</td>
           </tr>
 
           <tr>
             <td>Contents</td>
-            <td>{proposal.contents}</td>
+            <td>{formatCurrency(proposal.contents)}</td>
           </tr>
 
           <tr>
             <td>Business Income</td>
-            <td>{proposal.businessIncome}</td>
+            <td>{formatCurrency(proposal.businessIncome)}</td>
           </tr>
 
           <tr>
             <td>Total Insured Value</td>
-            <td>{proposal.totalInsuredValue}</td>
+            <td>{formatCurrency(proposal.totalInsuredValue)}</td>
           </tr>
         </tbody>
       </table>

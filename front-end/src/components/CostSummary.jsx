@@ -8,9 +8,7 @@ const CostSummary = ({ proposal }) => {
       }}
     >
       <h3>Estimated Costs</h3>
-
       <p>Estimated Annual Cost: {proposal.totalAnnualCost}</p>
-
       <p>Estimated ProRated Cost: {proposal.totalProratedCost}</p>
     </div>
   );
